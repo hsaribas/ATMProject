@@ -33,6 +33,7 @@ public class Options extends Account{
                 System.out.println("Please enter an integer to proceed or you can type in 'Q' to exit");
                 scan.nextLine();
                 String exit = scan.next().toLowerCase();
+
                 if(exit.equals("q")){
                     flag = false;
                 }
@@ -41,10 +42,11 @@ public class Options extends Account{
 
             int count = 0;
             for(Map.Entry<Integer, Integer> w : data.entrySet()){
-
                 if(w.getKey().equals(getAccountNumber()) && w.getValue().equals(getPinNumber())){
                     System.out.println("Welcome to your account!");
+
                     selectAccount();
+
                 }else{
                     count++;
                 }
@@ -55,6 +57,7 @@ public class Options extends Account{
                 System.out.println("invalid User");
                 System.out.println("Press any integer to try again or Press 'Q' to exit");
                 String exit = scan.next();
+
                 if(exit.equalsIgnoreCase("q")){
                     flag = false;
                 }
@@ -69,8 +72,8 @@ public class Options extends Account{
             System.out.println("1: Checking Account Operations");
             System.out.println("2: Saving Account Operations");
             System.out.println("3: Exit");
-
             int option = scan.nextInt();
+
             if (option == 3) {
                 break;
             }else if(option == 1){
@@ -120,7 +123,6 @@ public class Options extends Account{
             operationsMessage();
 
             int option = scan.nextInt();
-
             if (option == 4) {
                 break;
             }

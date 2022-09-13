@@ -53,28 +53,28 @@ public class Account {
         this.savingBalance = savingBalance;
     }
 
-    //calculate checking balance after withdraw
+    //Calculate checking balance after withdraw
     private double calculateCheckingBalanceAfterWithdraw(double amount){
 
         checkingBalance = checkingBalance - amount; //When user wants to withdraw money, their balance will be updated
         return checkingBalance;
     }
 
-    // Calculate checking account balance after deposit
+    //Calculate checking account balance after deposit
     private double calculateCheckingBalanceAfterDeposit(double amount){
 
         checkingBalance = checkingBalance + amount;
         return  checkingBalance;
     }
 
-    //calculate saving balance after withdraw
+    //Calculate saving balance after withdraw
     private double calculateSavingBalanceAfterWithdraw(double amount){
 
         savingBalance = savingBalance - amount;
         return savingBalance;
     }
 
-    // Calculate saving balance after deposit
+    //Calculate saving balance after deposit
     private double calculateSavingBalanceAfterDeposit(double amount){
 
         savingBalance = savingBalance + amount;
@@ -90,10 +90,12 @@ public class Account {
 
         if(amount <= 0){
             System.out.println("Negative or Zero amount is not acceptable!");
-            getCheckingWithdraw();
-        }else if(checkingBalance >= amount){
 
+            getCheckingWithdraw();
+
+        }else if(checkingBalance >= amount){
             calculateCheckingBalanceAfterWithdraw(amount);
+
             System.out.println("Your checking balance: "+ moneyFormat.format(checkingBalance));
         }else {
             System.out.println("You do not have enough money on your checking account");
@@ -109,9 +111,12 @@ public class Account {
 
         if(amount <= 0){
             System.out.println("Negative or Zero amount is not acceptable!");
+
             getCheckingDeposit();
+
         }else{
             calculateCheckingBalanceAfterDeposit(amount);
+
             System.out.println("Your checking balance: "+ moneyFormat.format(checkingBalance));
         }
     }
@@ -125,10 +130,12 @@ public class Account {
 
         if(amount <= 0){
             System.out.println("Negative or Zero amount is not acceptable!");
-            getSavingWithdraw();
-        }else if(savingBalance >= amount){
 
+            getSavingWithdraw();
+
+        }else if(savingBalance >= amount){
             calculateSavingBalanceAfterWithdraw(amount);
+
             System.out.println("Your saving balance: "+ moneyFormat.format(savingBalance));
         }else {
             System.out.println("You do not have enough money on your saving account");
@@ -144,9 +151,12 @@ public class Account {
 
         if(amount <= 0){
             System.out.println("Negative or Zero amount is not acceptable!");
+
             getSavingDeposit();
+
         }else{
             calculateSavingBalanceAfterDeposit(amount);
+
             System.out.println("Your saving balance: "+ moneyFormat.format(savingBalance));
         }
     }

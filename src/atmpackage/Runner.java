@@ -6,6 +6,5 @@ public class Runner {
 
         Options options = new Options();
         options.login();
-
     }
 }

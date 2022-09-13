@@ -75,6 +75,8 @@ public class Options extends Account{
             int option = scan.nextInt();
 
             if (option == 3) {
+                flag = false;
+                System.out.println("Thank you for using TechProEd ATM, see you again!");
                 break;
             }else if(option == 1){
                 checkingOperations();

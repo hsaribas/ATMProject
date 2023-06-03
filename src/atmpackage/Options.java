@@ -13,7 +13,7 @@ public class Options extends Account {
     boolean flag = true;
 
     public void login() {
-        System.out.println("Hi! Welcome to TechProEd ATM.");
+        System.out.println("Hi! Welcome to Sky ATM.");
 
         do {
             data.put(12345, 1234);//user 1
@@ -27,11 +27,10 @@ public class Options extends Account {
                 setPinNumber(scan.nextInt());
             } catch (Exception e) {
                 System.out.println("Hey! You have entered an invalid character!");
-                System.out.println("Please enter an integer to proceed or you can type in 'Q' to exit");
-                scan.nextLine();
-                String exit = scan.next().toLowerCase();
+                System.out.println("Please type 'P' to proceed or you can type in 'E' to exit");
+                String decision = scan.next().toLowerCase();
 
-                if (exit.equals("q")) {
+                if (decision.equalsIgnoreCase("E")) {
                     flag = false;
                 }
                 e.printStackTrace();
@@ -50,10 +49,10 @@ public class Options extends Account {
             if (count == data.size()) {
                 System.out.println("Account number or pin number does not match our users");
                 System.out.println("Invalid User");
-                System.out.println("Press any integer to try again or Press 'Q' to exit");
+                System.out.println("Please type 'P' to proceed or you can type in 'E' to exit");
                 String exit = scan.next();
 
-                if (exit.equalsIgnoreCase("q")) {
+                if (exit.equalsIgnoreCase("E")) {
                     flag = false;
                 }
             }
@@ -70,7 +69,7 @@ public class Options extends Account {
 
             if (option == 3) {
                 flag = false;
-                System.out.println("Thank you for using TechProEd ATM, see you again!");
+                System.out.println("Thank you for using Sky ATM, see you again!");
                 break;
             } else if (option == 1) {
                 checkingOperations();

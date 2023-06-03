@@ -5,68 +5,62 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Options extends Account{
+public class Options extends Account {
 
     Scanner scan = new Scanner(System.in);
     DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
     HashMap<Integer, Integer> data = new HashMap<>();
     boolean flag = true;
 
-    public void login(){
-
-        System.out.println("Hi! Welcome to TechProEd ATM..");
+    public void login() {
+        System.out.println("Hi! Welcome to TechProEd ATM.");
 
         do {
-            data.put(12345, 1234); // user 1
-            data.put(23456, 2345); // user 2
-            data.put(34567, 3456); // user 3
-            data.put(45678, 4567); // user 4
-
+            data.put(12345, 1234);//user 1
+            data.put(23456, 2345);//user 2
+            data.put(34567, 3456);//user 3
+            data.put(45678, 4567);//user 4
             try {
-                System.out.println("Enter account number");
+                System.out.println("Enter account number: ");
                 setAccountNumber(scan.nextInt());
-                System.out.println("Enter the pin number");
+                System.out.println("Enter the pin number: ");
                 setPinNumber(scan.nextInt());
-
-            }catch ( Exception e){
+            } catch (Exception e) {
                 System.out.println("Hey! You have entered an invalid character!");
                 System.out.println("Please enter an integer to proceed or you can type in 'Q' to exit");
                 scan.nextLine();
                 String exit = scan.next().toLowerCase();
 
-                if(exit.equals("q")){
+                if (exit.equals("q")) {
                     flag = false;
                 }
                 e.printStackTrace();
             }
 
             int count = 0;
-            for(Map.Entry<Integer, Integer> w : data.entrySet()){
-                if(w.getKey().equals(getAccountNumber()) && w.getValue().equals(getPinNumber())){
+            for (Map.Entry<Integer, Integer> w : data.entrySet()) {
+                if (w.getKey().equals(getAccountNumber()) && w.getValue().equals(getPinNumber())) {
                     System.out.println("Welcome to your account!");
-
                     selectAccount();
-
-                }else{
+                } else {
                     count++;
                 }
             }
 
-            if(count == data.size()){
+            if (count == data.size()) {
                 System.out.println("Account number or pin number does not match our users");
-                System.out.println("invalid User");
+                System.out.println("Invalid User");
                 System.out.println("Press any integer to try again or Press 'Q' to exit");
                 String exit = scan.next();
 
-                if(exit.equalsIgnoreCase("q")){
+                if (exit.equalsIgnoreCase("q")) {
                     flag = false;
                 }
             }
-        }while (flag );
+        } while (flag);
     }
 
-    public void selectAccount(){
-
+    public void selectAccount() {
         do {
             System.out.println("Select Option");
             System.out.println("1: Checking Account Operations");
@@ -78,35 +72,33 @@ public class Options extends Account{
                 flag = false;
                 System.out.println("Thank you for using TechProEd ATM, see you again!");
                 break;
-            }else if(option == 1){
+            } else if (option == 1) {
                 checkingOperations();
-            }else if(option == 2){
+            } else if (option == 2) {
                 savingOperations();
-            }else{
+            } else {
                 System.out.println("Invalid Option! Please select a correct one");
             }
-        }while (true);
+        } while (true);
     }
 
-    public void checkingOperations(){
-
+    public void checkingOperations() {
         do {
             operationsMessage();
 
             int option = scan.nextInt();
-
             if (option == 4) {
                 break;
             }
 
-            switch (option){
+            switch (option) {
                 case 1:
                     System.out.println("Your checking account balance is: " + moneyFormat.format(getCheckingBalance()));
                     break;
                 case 2:
-                    if(getCheckingBalance()>0){
+                    if (getCheckingBalance() > 0) {
                         getCheckingWithdraw();
-                    }else{
+                    } else {
                         System.out.println("You do not have enough money, please deposit first!");
                     }
                     break;
@@ -116,11 +108,10 @@ public class Options extends Account{
                 default:
                     System.out.println("Invalid Option! Please select 1, 2, 3 or 4");
             }
-        }while(true);
+        } while (true);
     }
 
-    public void savingOperations(){
-
+    public void savingOperations() {
         do {
             operationsMessage();
 
@@ -129,14 +120,14 @@ public class Options extends Account{
                 break;
             }
 
-            switch (option){
+            switch (option) {
                 case 1:
                     System.out.println("Your saving account balance is: " + moneyFormat.format(getSavingBalance()));
                     break;
                 case 2:
-                    if(getSavingBalance()>0){
+                    if (getSavingBalance() > 0) {
                         getSavingWithdraw();
-                    }else{
+                    } else {
                         System.out.println("You do not have enough money, please deposit first!");
                     }
                     break;
@@ -146,11 +137,10 @@ public class Options extends Account{
                 default:
                     System.out.println("Invalid Option! Please select 1, 2, 3 or 4");
             }
-        }while(true);
+        } while (true);
     }
 
-    public void operationsMessage(){
-
+    public void operationsMessage() {
         System.out.println("Select Option:");
         System.out.println("1: View Balance");
         System.out.println("2: Withdraw");
